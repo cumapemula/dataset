@@ -72,18 +72,24 @@ Gambar diatas menunjukkan info bahwa pada data terdapat enam kolom tipe numerik 
 
 Gambar diatas menginformasikan kita nilai ukuran tendensi sentral pada data.
 <br>
-<br>
 Keterangan : 
-* count : yaitu jumlah data keseluruhan
-* mean : yaitu nilai rata-rata pada kolom tertentu
-* std : yaitu standar deviasi pada kolom tertentu
-* min : yaitu nilai terkecil pada kolom tertentu
-* 25% : yaitu kuartil bawah data pada kolom tertentu
-* 50% : yaitu median atau nilai tengah data pada kolom tertentu
-* 75% : yaitu kuartil bawah data pada kolom tertentu
-* max : yaitu nilai terbesar pada kolom tertentu
-
-
+<br>
+       - count : yaitu jumlah data keseluruhan
+       <br>
+       - mean : yaitu nilai rata-rata pada kolom tertentu
+       <br>
+       - std : yaitu standar deviasi pada kolom tertentu
+       <br>
+       - min : yaitu nilai terkecil pada kolom tertentu
+       <br>
+       - 25% : yaitu kuartil bawah data pada kolom tertentu
+       <br>
+       - 50% : yaitu median atau nilai tengah data pada kolom tertentu
+       <br>
+       - 75% : yaitu kuartil bawah data pada kolom tertentu
+       <br>
+       - max : yaitu nilai terbesar pada kolom tertentu
+       
   * Univariate Analysis
 
 Teknik ini digunakan untuk menganalisa data satu persatu. Sebagai contoh berikut :
@@ -91,8 +97,6 @@ Teknik ini digunakan untuk menganalisa data satu persatu. Sebagai contoh berikut
 ![](https://github.com/cumapemula/dataset/blob/main/9.png?raw=true)
 
 Pada grafik diatas kita ketahui bahwa properti dengan tipe house paling banyak terjual. Dengan ini, point ketiga dari problem statements di awal sudah terjawab.
-
-
   * Multivariate Analysis
 
 Berbeda dengan teknik sebelumnya, pada teknik ini menunjukkan hubungan antara dua atau lebih variabel pada data. Sebagai contoh berikut :
