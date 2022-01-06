@@ -111,16 +111,16 @@ Koefisien korelasi berkisar antara -1 (korelasi negatif) dan +1 (korelasi positi
 
 # Data Preparation
 ---
-Pada bagian ini kita akan melakukan empat tahap persiapan data, yaitu :
-* Drop Columns
-* Missing Value & Outliers
-* Encoding 
-* Reduksi Dimensi
-* Train Test Split
-* Standarisasi
+Pada bagian ini kita akan melakukan enam tahap persiapan data, yaitu :
 
 
-Berikut Penjelasannya :
+
+
+
+
+
+
+
 * Drop Columns
 
 Kita akan mengeliminasi kolom Date, Id, dan postalCode karena dianggap kurang relevan dengan kasus ini.
@@ -149,14 +149,14 @@ Titik sampel yang berada diluar garis batas merupakan outliers. Kita akan menggu
 
 * Encoding
 
-Teknik encoding yang kita gunakan yaitu _One Hot Encoding_. Teknik ini berfungsi untuk mendapatkan fitur baru yang sesuai sehingga dapat mewakili variabel kategori.
+Teknik encoding yang kita gunakan yaitu _One Hot Encoding_. Teknik ini berfungsi untuk mendapatkan fitur baru yang sesuai sehingga dapat mewakili variabel kategori. Hasil output berupa nilai boolean, yaitu False (0) dan True (1). Kita akan menerapkan teknik ini pada kolom _suburb_ dan _type_ karena kolom tersebut merupakan fitur kategori.
 
 ![](https://github.com/cumapemula/dataset/blob/main/12.png?raw=true)
 
 
 * Reduksi Dimensi
 
-Teknik reduksi (pengurangan) dimensi adalah prosedur yang mengurangi jumlah fitur dengan tetap mempertahankan informasi pada data. Teknik pengurangan dimensi yang paling populer adalah _Principal Component Analysis_ atau disingkat menjadi PCA. Ia adalah teknik untuk mereduksi dimensi, mengekstraksi fitur, dan mentransformasi data dari “n-dimensional space” ke dalam sistem berkoordinat baru dengan dimensi m, di mana m lebih kecil dari n.
+Teknik reduksi (pengurangan) dimensi adalah prosedur yang mengurangi jumlah fitur dengan tetap mempertahankan informasi pada data. Teknik pengurangan dimensi yang paling populer adalah _Principal Component Analysis_ atau disingkat menjadi PCA. Ia adalah teknik untuk mereduksi dimensi, mengekstraksi fitur, dan mentransformasi data dari “n-dimensional space” ke dalam sistem berkoordinat baru dengan dimensi m, di mana m lebih kecil dari n. Kita akan menerapkannya pada kolom yang memiliki skor korelasi yang paling tinggi berdasarkan hasil analisis sebelumnya yaitu bedrooms dan bathrooms.
 
 ![](https://github.com/cumapemula/dataset/blob/main/13.png?raw=true)
 
@@ -164,13 +164,13 @@ Teknik reduksi (pengurangan) dimensi adalah prosedur yang mengurangi jumlah fitu
 
 * Train Test Split
 
-Pada tahap ini kita akan membagi dataset menjadi data latih dan data uji. Tahap ini diperlukan untuk mempertahankan sebagian data yang ada untuk menguji seberapa baik generalisasi model terhadap data baru. Berikut perintah kode serta output untuk pembagian dataset.
+Pada tahap ini kita akan membagi dataset menjadi data latih dan data uji. Tahap ini diperlukan untuk mempertahankan sebagian data yang ada untuk menguji seberapa baik generalisasi model terhadap data baru. Berikut perintah kode serta output untuk pembagian dataset. Data yang akan kita split menjadi data latih yaitu semua kolom/fitur kecuali kolom _price_ karena kolom tersebut adalah fitur target/label. Sedangkan kolom yang menjadi data uji kita yaitu kolom _price_. Detailnya dapat kita lihat pada gambar berikut.
 
 ![](https://github.com/cumapemula/dataset/blob/main/15.png?raw=true)
 
 * Standarisasi
 
-Proses scaling dan standarisasi membantu untuk membuat fitur data menjadi bentuk yang lebih mudah diolah oleh algoritma. Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap persiapan pemodelan. Kita akan menggunakan teknik StandarScaler dari library Scikitlearn. StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi.  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0. Sekitar 68% dari nilai akan berada di antara -1 dan 1.
+Proses scaling dan standarisasi membantu untuk membuat fitur data menjadi bentuk yang lebih mudah diolah oleh algoritma. Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap persiapan pemodelan. Kita akan menggunakan teknik StandarScaler dari library Scikitlearn. StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi.  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0. Sekitar 68% dari nilai akan berada di antara -1 dan 1. Teknik ini akan kita terapkan pada kolom/fitur numerik yaitu _garage_ dan _dimension_.
 
 ![](https://github.com/cumapemula/dataset/blob/main/16.png?raw=true)
 
