@@ -2,8 +2,11 @@
 ---
 ## Domain Proyek
 ---
-Seorang investor properti sukses dari Indonesia berencana ingin menambah jumlah aset propertinya di Australia lebih tepatnya Sydney. Tentu, ia harus mengetahui properti seperti apa yang cocok dengan warga disana. 
-* Untuk mendatangkan profit di kemudian hari serta penjualan yang cepat kita perlu sebuah data tentang penjualan properti yang ada di Sydney tersebut. Kita akan memprediksi harga properti berdasarkan tipe tertentu. Lalu, sang investor dapat mencari dan menentukan properti mana yang memiliki harga dibawah pasaran.
+Seorang investor properti sukses dari Indonesia berencana ingin menambah jumlah aset propertinya di Australia lebih tepatnya Sydney. Tentu, ia harus mengetahui properti seperti apa yang cocok dengan warga disana.
+
+Untuk mendatangkan profit di kemudian hari serta penjualan yang cepat kita perlu sebuah data tentang penjualan properti yang ada di Sydney tersebut. Kita akan memprediksi harga properti berdasarkan tipe tertentu. Lalu, sang investor dapat mencari dan menentukan properti mana yang memiliki harga dibawah pasaran.
+
+Hal yang diperlukan untuk memecahkan masalah diatas adalah sebuah model algoritma machine learning. Berikutnya kita akan membahas alur untuk mengembangkan model algoritma machine learning untuk memprediksi harga pasar dari sebuah sehingga dapat menjawab permasalahan diatas untuk membantu sang investor menemukan properti dengan harga di bawah pasaran.
 
 ## Business Understanding
 ---
@@ -20,6 +23,8 @@ Untuk menjawab masalah latar belakang pada statement diatas, kita akan membuat p
 * Membuat model machine learning yang dapat memprediksi harga properti seakurat mungkin berdasarkan fitur yang ada
 * Melakukan analisa data satu persatu 
 
+
+### Solution Statements
 Berikut cara untuk meraih goals diatas :
   * Melalui pendekatan machine learning dengan teknik multivariate analysis, kita akan mengetahui hubungan antar dua atau lebih variabel sehingga kita dapat mengetahui fitur mana yang memiliki korelasi tinggi terhadap fitur target berdasarkan pola persebaran datanya
   * Kita akan menerapkan tiga jenis algoritma model machine learning untuk mengetahui model mana yang menghasilkan nilai prediksi mendekati nilai sebenarnya.
@@ -27,7 +32,7 @@ Berikut cara untuk meraih goals diatas :
 
 # Data Understanding
 ---
-Data yang akan kita gunakan berikut bersumber dari Kaggle. Berikut data yang akan kita gunakan : [Sydney House Price](https://github.com/cumapemula/dataset/tree/main/SydneyHousePrices.csv)
+Data yang akan kita gunakan berikut bersumber dari Kaggle. Berikut data yang akan kita gunakan : [Sydney House Price](https://github.com/cumapemula/dataset/tree/main/SydneyHousePrices.csv). Data tersebut berisi jumlah total 199504 baris dan 9 kolom. Data tersebut berisi informasi tentang penjualan properti dengan karakteristik tertentu di kota Sydney. Karakteristik tersebut akan dijelaskan melalui variabel dibawah ini.
 
 **Variabel pada dataset Sydney House Price adalah sebagai berikut :**
 * Date       : yaitu tanggal properti tersebut terjual
@@ -54,11 +59,7 @@ Berikut uraian dari tahapan tersebut :
 
 ![](https://raw.githubusercontent.com/cumapemula/dataset/main/1.png)
 
-Gambar diatas adalah output dari kode yang kita jalankan untuk mengimport dataset. Dapat kita ketahui bahwa data pada tabel tersebut memiliki total 199504 baris serta 9 kolom. Kita akan mengeliminasi kolom Date, Id, dan postalCode karena dianggap kurang relevan dengan kasus ini.
-
-![](https://raw.githubusercontent.com/cumapemula/dataset/main/2.png)
-
-Kita sudah berhasil mengeliminasi kolom tersebut serta merubah nama kolom agar terlihat rapih dan mudah dimengerti. Terlihat bahwa jumlah kolom sudah berkurang menjadi 6 kolom.
+Gambar diatas adalah output dari kode yang kita jalankan untuk mengimport dataset. Dapat kita ketahui bahwa data pada tabel tersebut memiliki total 199504 baris serta 9 kolom. 
 
 * Exploratory Data Analysis
   * Deskripsi Variabel
