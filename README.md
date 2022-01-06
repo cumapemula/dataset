@@ -50,7 +50,6 @@ Untuk lebih memahami data, kita akan menggunakan beberapa tahapan diantaranya :
   * Data loading
   * Exploratory Data Analysis :
     * Deskripsi Variabel
-    * Missing value & Outliers
     * Univariate Analysis
     * Multivariate Analaysis
 
@@ -62,26 +61,71 @@ Berikut uraian dari tahapan tersebut :
 Gambar diatas adalah output dari kode yang kita jalankan untuk mengimport dataset. Dapat kita ketahui bahwa data pada tabel tersebut memiliki total 199504 baris serta 9 kolom. 
 
 * Exploratory Data Analysis
-  * Deskripsi Variabel
-  
-  ![](https://raw.githubusercontent.com/cumapemula/dataset/main/3.png)
 
-Gambar diatas menunjukkan info bahwa pada data terdapat empat kolom tipe numerik dan dua kolom tipe kategorikal. Coba kita perhatikan, jumlah data pada kolom bedrooms dan garage tidak sama seperti kolom lain. Ini menunjukkan bahwa kolom tersebut terdapat nilai yang kosong (missing value), ini akan kita bahas pada tahap selanjutnya.
+  * Deskripsi Variabel  
 
-![](https://github.com/cumapemula/dataset/blob/main/4.png?raw=true)
+![](https://github.com/cumapemula/dataset/blob/main/22.png?raw=true)
+
+Gambar diatas menunjukkan info bahwa pada data terdapat enam kolom tipe numerik dan tiga kolom tipe kategorikal. Coba kita perhatikan, jumlah data pada kolom bed dan car tidak sama seperti kolom lain. Ini menunjukkan bahwa kolom tersebut terdapat nilai yang kosong (missing value), ini akan kita bahas pada tahap selanjutnya.
+
+![](https://github.com/cumapemula/dataset/blob/main/23.png?raw=true)
 
 Gambar diatas menginformasikan kita nilai ukuran tendensi sentral pada data.
+<br>
+<br>
 Keterangan : 
-    - count : yaitu jumlah data keseluruhan
-    - mean : yaitu nilai rata-rata pada kolom tertentu
-    - std : yaitu standar deviasi pada kolom tertentu
-    - min : yaitu nilai terkecil pada kolom tertentu
-    - 25% : yaitu kuartil bawah data pada kolom tertentu
-    - 50% : yaitu median atau nilai tengah data pada kolom tertentu
-    - 75% : yaitu kuartil bawah data pada kolom tertentu
-    - max : yaitu nilai terbesar pada kolom tertentu
+* count : yaitu jumlah data keseluruhan
+* mean : yaitu nilai rata-rata pada kolom tertentu
+* std : yaitu standar deviasi pada kolom tertentu
+* min : yaitu nilai terkecil pada kolom tertentu
+* 25% : yaitu kuartil bawah data pada kolom tertentu
+* 50% : yaitu median atau nilai tengah data pada kolom tertentu
+* 75% : yaitu kuartil bawah data pada kolom tertentu
+* max : yaitu nilai terbesar pada kolom tertentu
 
-  * Missing Value & Outliers
+
+  * Univariate Analysis
+
+Teknik ini digunakan untuk menganalisa data satu persatu. Sebagai contoh berikut :
+
+![](https://github.com/cumapemula/dataset/blob/main/9.png?raw=true)
+
+Pada grafik diatas kita ketahui bahwa properti dengan tipe house paling banyak terjual. Dengan ini, point ketiga dari problem statements di awal sudah terjawab.
+
+
+  * Multivariate Analysis
+
+Berbeda dengan teknik sebelumnya, pada teknik ini menunjukkan hubungan antara dua atau lebih variabel pada data. Sebagai contoh berikut :
+
+![](https://github.com/cumapemula/dataset/blob/main/10.png?raw=true)
+
+Pada pola sebaran data grafik diatas, fitur bedrooms,bathrooms, dan garage membentuk sebuah pola pada fitur target price yang berarti ketiga kolom tersebut memiliki korelasi terhadap fitur target. Untuk mengetahui fitur mana yang memiliki korelasi tinggi terhadap target, kita evaluasi skor korelasi tersebut sebagai berikut :
+
+![](https://github.com/cumapemula/dataset/blob/main/11.png?raw=true)
+
+Koefisien korelasi berkisar antara -1 (korelasi negatif) dan +1 (korelasi positif). Jika skor mendekati 0, maka semakin lemah korelasinya. Bila terdapat korelasi yang lemah, fitur tersebut dapat kita drop.
+
+# Data Preparation
+---
+Pada bagian ini kita akan melakukan empat tahap persiapan data, yaitu :
+* Drop Columns
+* Missing Value & Outliers
+* Encoding 
+* Reduksi Dimensi
+* Train Test Split
+* Standarisasi
+
+
+Berikut Penjelasannya :
+* Drop Columns
+
+Kita akan mengeliminasi kolom Date, Id, dan postalCode karena dianggap kurang relevan dengan kasus ini.
+ 
+![](https://raw.githubusercontent.com/cumapemula/dataset/main/2.png)
+ 
+Kita sudah berhasil mengeliminasi kolom tersebut serta merubah nama kolom agar terlihat rapih dan mudah dimengerti. Terlihat bahwa jumlah kolom sudah berkurang menjadi 6 kolom.
+
+* Missing Value & Outliers
 
 Berikut perintah kode serta output untuk mengetahui apakah terdapat missing value pada data.
 
@@ -99,40 +143,12 @@ Titik sampel yang berada diluar garis batas merupakan outliers. Kita akan menggu
 
 ![](https://github.com/cumapemula/dataset/blob/main/8.png?raw=true)
 
-  * Univariate Analysis
-
-Teknik ini digunakan untuk menganalisa data satu persatu. Sebagai contoh berikut :
-
-![](https://github.com/cumapemula/dataset/blob/main/9.png?raw=true)
-
-Pada grafik diatas kita ketahui bahwa properti dengan tipe house paling banyak terjual. Dengan ini, point ketiga dari problem statements di awal sudah terjawab.
-  * Multivariate Analysis
-
-Berbeda dengan teknik sebelumnya, pada teknik ini menunjukkan hubungan antara dua atau lebih variabel pada data. Sebagai contoh berikut :
-
-![](https://github.com/cumapemula/dataset/blob/main/10.png?raw=true)
-
-Pada pola sebaran data grafik diatas, fitur bedrooms,bathrooms, dan garage membentuk sebuah pola pada fitur target price yang berarti ketiga kolom tersebut memiliki korelasi terhadap fitur target. Untuk mengetahui fitur mana yang memiliki korelasi tinggi terhadap target, kita evaluasi skor korelasi tersebut sebagai berikut :
-
-![](https://github.com/cumapemula/dataset/blob/main/11.png?raw=true)
-
-Koefisien korelasi berkisar antara -1 (korelasi negatif) dan +1 (korelasi positif). Jika skor mendekati 0, maka semakin lemah korelasinya. Bila terdapat korelasi yang lemah, fitur tersebut dapat kita drop.
-
-# Data Preparation
----
-Pada bagian ini kita akan melakukan empat tahap persiapan data, yaitu :
-* Encoding 
-* Reduksi Dimensi
-* Train Test Split
-* Standarisasi
-
-
-Berikut Penjelasannya :
 * Encoding
 
 Teknik encoding yang kita gunakan yaitu _One Hot Encoding_. Teknik ini berfungsi untuk mendapatkan fitur baru yang sesuai sehingga dapat mewakili variabel kategori.
 
 ![](https://github.com/cumapemula/dataset/blob/main/12.png?raw=true)
+
 
 * Reduksi Dimensi
 
