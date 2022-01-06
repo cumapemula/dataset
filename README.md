@@ -107,7 +107,7 @@ Pada pola sebaran data grafik diatas, fitur bedrooms,bathrooms, dan garage membe
 
 ![](https://github.com/cumapemula/dataset/blob/main/11.png?raw=true)
 
-Koefisien korelasi berkisar antara -1 (korelasi negatif) dan +1 (korelasi positif). Jika skor mendekati 0, maka semakin lemah korelasinya. Bila terdapat korelasi yang lemah, fitur tersebut dapat kita drop.
+Koefisien korelasi berkisar antara -1 (korelasi negatif) dan +1 (korelasi positif). Jika skor mendekati 0, maka semakin lemah korelasinya. Bila terdapat korelasi yang lemah, fitur tersebut dapat kita drop. Berdasarkan plot dan korelasi matriks diatas, kita dapat menyimpulkan bahwa korelasinya bersifat lemah karena berdasarkan plot sebelumnya distribusi datanya tidak berbentuk linier dan dibuktikan dengan matrix korelasi yang telah dilakukan, dapat dilihat bahwa nilainya lebih condong mendekati 0.
 
 # Data Preparation
 ---
@@ -181,13 +181,35 @@ Proses scaling dan standarisasi membantu untuk membuat fitur data menjadi bentuk
 Pada tahap ini, kita akan mengembangkan tiga model dengan algoritma machine learning yang berbeda untuk mendapatkan hasil prediksi yang paling akurat. Algoritma tersebut antara lain K-Nearest Neighbor, Random Forest, dan Boosting Algorithm.
 * K-Nearest Neighbor
 
-Kelebihan dari algoritma ini yaitu relatif sederhana dibandingkan dengan algoritma lain. Namun memiliki kekurangan jika dihadapkan pada jumlah fitur atau dimensi yang besar sering disebut sebagai _curse of dimensionality_ (kutukan dimensi).
+KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif).Pemilihan nilai k sangat penting dan berpengaruh terhadap performa model. Jika kita memilih k yang terlalu rendah, maka akan menghasilkan model yang overfit dan hasil prediksinya memiliki varians tinggi. Jika kita memilih k terlalu tinggi, maka model yang dihasilkan akan underfit dan prediksinya memiliki bias yang tinggi. Kelebihan dari algoritma ini yaitu relatif sederhana dibandingkan dengan algoritma lain. Namun memiliki kekurangan jika dihadapkan pada jumlah fitur atau dimensi yang besar sering disebut sebagai _curse of dimensionality_ (kutukan dimensi). Pada penerapan kali ini kita menggunakan parameter berikut :
+<br>
+<br>
+          - n_neighbor, yaitu jumlah _k_
+
 * Random Forest
 
-Kelebihan dari algoritma ini selain cukup sederhana juga memiliki tingkat keberhasilan lebih tinggi karena algoritma ini termasuk ke dalam model kategori ensemble  (group) learning yaitu model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Kekurangan dari algoritma ini yaitu interpretasi yang sulit dan membutuhkan tuning model yang tepat untuk data.
+Random forest merupakan kombinasi dari masing – masing pohon (tree) dari model Decision Tree yang baik, dan kemudian dikombinasikan ke dalam satu model.
+
+Penggunaan tree yang semakin banyak akan mempengaruhi akurasi yang akan didapatkan menjadi lebih baik. Penentuan klasifikasi dengan random forest diambil berdasarkan hasil voting dari tree yang terbentuk.Kelebihan dari algoritma ini selain cukup sederhana juga memiliki tingkat keberhasilan lebih tinggi karena algoritma ini termasuk ke dalam model kategori ensemble  (group) learning yaitu model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Kekurangan dari algoritma ini yaitu interpretasi yang sulit dan membutuhkan tuning model yang tepat untuk data. Parameter yang kita gunakan sebagai berikut :
+<br>
+<br>
+        - n_estimators, yaitu jumlah pohon dalam forest 
+        <br> 
+        - max_depth, yaitu maksimum kedalaman pohon 
+        <br>
+        - random_state, yaitu seed yang digunakan oleh generator angka acak 
+        <br>
+        - n_jobs, yaitu jumlah pekerjaan yang dilakukan secara paralel untuk kecocokan dan prediksi
 * Boosting Algorithm
 
-Kelebihan dari boosting algorithm yaitu pada algoritma ini sangat powerful dalam meningkatkan akurasi prediksi. 
+Algoritma boosting bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan. Kelebihan dari boosting algorithm yaitu pada algoritma ini sangat powerful dalam meningkatkan akurasi prediksi. Berikut parameter yang akan kita gunakan :
+<br>
+<br>
+        - n_estimators, yaitu jumlah pohon dalam forest 
+        <br>
+        - learning_rate, yaitu parameter training untuk menghitung nilai koreksi bobot pada waktu proses training
+        <br>
+        - random_state, yaitu seed yang digunakan oleh generator angka acak
 
 # Evaluation
 ---
