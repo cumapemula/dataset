@@ -50,6 +50,7 @@ Untuk lebih memahami data, kita akan menggunakan beberapa tahapan diantaranya :
   * Data loading
   * Exploratory Data Analysis :
     * Deskripsi Variabel
+    * Check Missing Value & Outliers
     * Univariate Analysis
     * Multivariate Analaysis
 
@@ -89,7 +90,18 @@ Keterangan :
        - 75% : yaitu kuartil bawah data pada kolom tertentu
        <br>
        - max : yaitu nilai terbesar pada kolom tertentu
-       
+   * Check Missing Value & Outliers
+<br>
+Berikut perintah kode serta output untuk mengetahui apakah terdapat missing value pada data.
+
+![](https://github.com/cumapemula/dataset/blob/main/5.png?raw=true)
+
+Terlihat bahwa cukup banyak missing value yang terdapat pada kolom bedrooms dan garage. Kita akan mengatasinya pada tahap data preparation. Selanjutnya, kita pastikan apakah ada suatu pengamatan yang berada di luar lingkungan pengamatan lainnya atau disebut outliers. Sebagai contoh kita gunakan kolom garage.
+
+![](https://github.com/cumapemula/dataset/blob/main/7.png?raw=true)
+
+Titik sampel yang berada diluar garis batas merupakan outliers.
+
   * Univariate Analysis
 
 Teknik ini digunakan untuk menganalisa data satu persatu. Sebagai contoh berikut :
@@ -113,14 +125,6 @@ Koefisien korelasi berkisar antara -1 (korelasi negatif) dan +1 (korelasi positi
 ---
 Pada bagian ini kita akan melakukan enam tahap persiapan data, yaitu :
 
-
-
-
-
-
-
-
-
 * Drop Columns
 
 Kita akan mengeliminasi kolom Date, Id, dan postalCode karena dianggap kurang relevan dengan kasus ini.
@@ -131,19 +135,11 @@ Kita sudah berhasil mengeliminasi kolom tersebut serta merubah nama kolom agar t
 
 * Missing Value & Outliers
 
-Berikut perintah kode serta output untuk mengetahui apakah terdapat missing value pada data.
-
-![](https://github.com/cumapemula/dataset/blob/main/5.png?raw=true)
-
-Terlihat bahwa cukup banyak missing value yang terdapat pada kolom bedrooms dan garage. Kita akan mengganti nilai tersebut dengan nilai mean. Jalankan perintah kode berikut serta cek kembali apakah masih terdapat missing value atau tidak.
+Pada tahap data understanding sebelumnya kita mengetahui bahwa ada nilai yang kosong (missing value) pada data. Kita akan mengganti nilai tersebut dengan nilai mean. Jalankan perintah kode berikut serta cek kembali apakah masih terdapat missing value atau tidak.
 
 ![](https://github.com/cumapemula/dataset/blob/main/6.png?raw=true)
 
-Setelah data kita pastikan sudah tidak ada nilai yang kosong, selanjutnya kita pastikan apakah ada suatu pengamatan yang berada di luar lingkungan pengamatan lainnya atau disebut outliers. Sebagai contoh kita gunakan kolom garage.
-
-![](https://github.com/cumapemula/dataset/blob/main/7.png?raw=true)
-
-Titik sampel yang berada diluar garis batas merupakan outliers. Kita akan menggunakan teknik IQR Method untuk menangani outliers tersebut lalu cek kembali pada kolom garage apakah masih terdapat outliers atau tidak.
+Selain membahas missing value, pada data understanding kita juga melakukan tahap visualisasi terhadap suatu pengamatan yang berada diluar lingkungan pengamatan lainnya atau sering disebut outliers. Terlihat bahwa pada contoh kolom _garage_ terdapat banyak sekali outliers. Kita akan menggunakan teknik IQR Method untuk menangani outliers tersebut lalu cek kembali pada kolom garage apakah masih terdapat outliers atau tidak.
 
 ![](https://github.com/cumapemula/dataset/blob/main/8.png?raw=true)
 
@@ -181,16 +177,14 @@ Proses scaling dan standarisasi membantu untuk membuat fitur data menjadi bentuk
 Pada tahap ini, kita akan mengembangkan tiga model dengan algoritma machine learning yang berbeda untuk mendapatkan hasil prediksi yang paling akurat. Algoritma tersebut antara lain K-Nearest Neighbor, Random Forest, dan Boosting Algorithm.
 * K-Nearest Neighbor
 
-KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif).Pemilihan nilai k sangat penting dan berpengaruh terhadap performa model. Jika kita memilih k yang terlalu rendah, maka akan menghasilkan model yang overfit dan hasil prediksinya memiliki varians tinggi. Jika kita memilih k terlalu tinggi, maka model yang dihasilkan akan underfit dan prediksinya memiliki bias yang tinggi. Kelebihan dari algoritma ini yaitu relatif sederhana dibandingkan dengan algoritma lain. Namun memiliki kekurangan jika dihadapkan pada jumlah fitur atau dimensi yang besar sering disebut sebagai _curse of dimensionality_ (kutukan dimensi). Pada penerapan kali ini kita menggunakan parameter berikut :
+KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif). Pemilihan nilai k sangat penting dan berpengaruh terhadap performa model. Jika kita memilih k yang terlalu rendah, maka akan menghasilkan model yang overfit dan hasil prediksinya memiliki varians tinggi. Jika kita memilih k terlalu tinggi, maka model yang dihasilkan akan underfit dan prediksinya memiliki bias yang tinggi. Kelebihan dari algoritma ini yaitu relatif sederhana dibandingkan dengan algoritma lain. Namun memiliki kekurangan jika dihadapkan pada jumlah fitur atau dimensi yang besar sering disebut sebagai _curse of dimensionality_ (kutukan dimensi). Pada penerapan kali ini kita menggunakan parameter berikut :
 <br>
 <br>
           - n_neighbor, yaitu jumlah _k_
 
 * Random Forest
 
-Random forest merupakan kombinasi dari masing – masing pohon (tree) dari model Decision Tree yang baik, dan kemudian dikombinasikan ke dalam satu model.
-
-Penggunaan tree yang semakin banyak akan mempengaruhi akurasi yang akan didapatkan menjadi lebih baik. Penentuan klasifikasi dengan random forest diambil berdasarkan hasil voting dari tree yang terbentuk.Kelebihan dari algoritma ini selain cukup sederhana juga memiliki tingkat keberhasilan lebih tinggi karena algoritma ini termasuk ke dalam model kategori ensemble  (group) learning yaitu model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Kekurangan dari algoritma ini yaitu interpretasi yang sulit dan membutuhkan tuning model yang tepat untuk data. Parameter yang kita gunakan sebagai berikut :
+Random forest merupakan kombinasi dari masing – masing pohon (tree) dari model Decision Tree yang baik, dan kemudian dikombinasikan ke dalam satu model. Penggunaan tree yang semakin banyak akan mempengaruhi akurasi yang akan didapatkan menjadi lebih baik. Penentuan klasifikasi dengan random forest diambil berdasarkan hasil voting dari tree yang terbentuk. Kelebihan dari algoritma ini selain cukup sederhana juga memiliki tingkat keberhasilan lebih tinggi karena algoritma ini termasuk ke dalam model kategori ensemble  (group) learning yaitu model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Kekurangan dari algoritma ini yaitu interpretasi yang sulit dan membutuhkan tuning model yang tepat untuk data. Parameter yang kita gunakan sebagai berikut :
 <br>
 <br>
         - n_estimators, yaitu jumlah pohon dalam forest 
